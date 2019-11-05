@@ -2,9 +2,20 @@ doctype html
 html(lang="ru")
 head
     meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(href="styles/main.css" type="text/css" rel="stylesheet")
     title Заголовок
 body
-    p Это пример текста 2
+    p.toto Это пример текста 2
     p А это следующий абзац
-    div Это блочный элемент
+    div.container
+        div.row
+            span.col-5 первая колонка
+            span.col-6 вторая колонка
+    h3 Проверка работы библиотеки <i>Popper</i>
+    button.button1 кнопка
+    div.invisible-text невидимая надпись
+    h3 Пример использования Tooltip'а
+    span.navedi(title="наведи" data-toggle="tooltip" data-placement="right") наведи на меня курсор
+    script(src="scripts/entry.js")

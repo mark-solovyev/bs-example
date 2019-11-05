@@ -1,4 +1,12 @@
-p {
-    color: blue
-}
 @import "main2";
+@import "./../../node_modules/bootstrap/scss/bootstrap.scss";
+div {
+    border: solid 1px black
+}
+p {
+    color: green
+}
+.invisible-text {
+    background-color: blanchedalmond;
+    width: 260px
+}
