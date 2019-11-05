@@ -3,6 +3,7 @@ const gulp = require("gulp");
 const pug = require("gulp-pug");
 const sass =  require("gulp-sass");
 sass.compiler = require("node-sass");
+const browserSync = require("browser-sync").create();
 
 const myPath = {
     src: {
@@ -17,17 +18,33 @@ const myPath = {
     }
 }
 
+// PAG --> HTML
 gulp.task("build:html", ()=> {
     return gulp.src(myPath.src.pug)
         .pipe(pug())
         .pipe(gulp.dest(myPath.dist.root));
 });
+// SCSS --> CSS
 gulp.task("build:css", ()=> {
     return gulp.src(myPath.src.scss)
         .pipe(sass().on("error", sass.logError))
         .pipe(gulp.dest(myPath.dist.styles));
 });
-gulp.task("default", gulp.series("build:html", "build:css"));
+// RUN SERVER
+gulp.task("run", ()=> {
+    browserSync.init({
+        server: {
+            baseDir: "./dist"
+        },
+        open: false
+    });
+});
+// RELOAD SERVER
+gulp.task("reload", (done)=> {
+    browserSync.reload();
+    done();
+});
+gulp.task("default", gulp.series("build:html", "build:css", "run"));
 
-gulp.watch(myPath.src.views, gulp.series("build:html"));
-gulp.watch(myPath.src.styles, gulp.series("build:css"));
+gulp.watch(myPath.src.views, gulp.series("build:html", "reload"));
+gulp.watch(myPath.src.styles, gulp.series("build:css", "reload"));
