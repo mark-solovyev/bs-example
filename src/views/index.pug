@@ -13,9 +13,30 @@ body
         div.row
             span.col-5 первая колонка
             span.col-6 вторая колонка
+    .container
+        .row(style="height: 300px" class="align-items-center")
+            span.col(style="border: solid 1px red" class="align-self-start") Первая колонка2
+            span.col Воторая колонка
+            span.col Третья колонка
+
+    .container
+        .row(style="height: 300px" class="align-items-start")
+            span.col.offset-md-2(style="border: solid 1px purple") Первая колонка
+            span.col Вторая колонка
+            .w-100
+            span.col Третья колонка
+            span.col-auto(style="border: solid 1px green") Четвёртая колонка
+            span.col Пятая колонка
+    .container
+        .row.justify-content-center
+            span.col-auto(style="border: solid 1px green") жожо
+    button.btn.btn-zorro(type="button") Моя кнопка2
     h3 Проверка работы библиотеки <i>Popper</i>
     button.button1 кнопка
     div.invisible-text невидимая надпись
     h3 Пример использования Tooltip'а
     span.navedi(title="наведи" data-toggle="tooltip" data-placement="right") наведи на меня курсор
+    h3 Пример работы popover'а
+    span.mumu(data-toggle="popover" data-content="А здесь содержание поповера" title="заголовок" data-placement="top") щёлкни сюда
+
     script(src="scripts/entry.js")

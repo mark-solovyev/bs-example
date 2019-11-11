@@ -2,6 +2,7 @@
 //import Popper from "popper.js";
 import Util from "./../../node_modules/bootstrap/js/dist/util.js";
 import Tooltip from "./../../node_modules/bootstrap/js/dist/tooltip.js";
+import Popover from "./../../node_modules/bootstrap/js/dist/popover.js";
 
 // проверка работы Popper
 var ref = $(".button1");
@@ -20,3 +21,4 @@ ref.click(function() {
 });
 // Проверка работы Tooltip'а
 $("[data-toggle='tooltip']").tooltip();
+$(".mumu").popover();
